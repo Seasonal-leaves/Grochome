@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Edit the Category named {{ category.name }}</h1>
+    <div class="content-section">
+       
+        
+            <form method="POST" action="{{ url_for('edit_category', category_id=category.id) }}">
+                {{ form.csrf_token }}
+                <div>
+                    {{ form.name.label }}
+                    {{ form.name(class="form-control", placeholder="Enter product name") }}
+                </div>
+                
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+    
+    </form>
+</body>
+</html>

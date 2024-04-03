@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{%block title%} Admin Login page {%endblock%}
+
+{% block main %}
+
+<h5>Admin Login Page</h5>
+<p>Fill this page only if you are the admin.To login to your admin account.</p>
+<hr>
+<br>
+<form method="POST" action="{{ url_for('adminlogin') }}">
+    {{ form.csrf_token }}
+
+    <div class="form-group">
+        {{ form.email.label }}
+        {{ form.email(class="form-control", style="width:300px", placeholder="enter email") }}
+        {% for error in form.email.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        {{ form.password.label }}
+        {{ form.password(class="form-control", style="width:300px", placeholder="Enter password") }}
+        {% for error in form.password.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+
+
+    {{ form.submit(class="btn btn-outline-primary") }}
+</form>
+
+
+<p> 
+    </br>
+    <a class="nav-link" href="{{ url_for('home') }}"> Go back</a></p>
+{% endblock %}

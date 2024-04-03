@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{%block title%} Registration Page {%endblock%}
+
+{% block main %}
+
+<div class="content-section">
+    <form method="POST" action="{{ url_for('register') }}">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            {{ form.email.label }}
+            {{ form.email(class="form-control", style="width:300px", placeholder="Enter email") }}
+          
+        </div>
+        <div class="form-group">
+            {{ form.username.label }}
+            {{ form.username(class="form-control", style="width:300px", placeholder="Enter username") }}
+         
+        </div>
+        
+        <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password(class="form-control", style="width:300px", placeholder="Enter password") }}
+            
+        </div>
+        
+        <div class="form-group">
+            {{ form.confirm_password.label }}
+            {{ form.confirm_password(class="form-control", style="width:300px", placeholder="Confirm Password") }}
+         
+        </div>
+
+
+
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-primary") }}
+        </div>
+    </form>
+    
+    
+
+<p> 
+    <a class="nav-link" href="{{ url_for('login') }}"> Already have an account login here</a></p></br>
+    <a class="nav-link" href="{{ url_for('home') }}"> Go back</a></p>
+   
+   
+</div>
+{% endblock %}
